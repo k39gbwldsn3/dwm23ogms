@@ -32,7 +32,7 @@ game:GetService("StarterGui"):SetCore(
     "SendNotification",
     {
         Title = "Notification",
-        Text = "Also try new NoName Hub, its better and more optimizated\nBut it requires better executor (You can use free swift, https://getswift.gg/)",
+        Text = "Also try new NoName Hub, its better and more optimizated\nBut it requires better executor (You can use free swift, https://getswift.gg/)\nNoName Hub: https://pastebin.com/raw/kBkVVE7A",
         Duration = 25
     }
 )
